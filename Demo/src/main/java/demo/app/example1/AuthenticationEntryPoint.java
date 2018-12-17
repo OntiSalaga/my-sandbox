@@ -1,22 +1,12 @@
-package demo.example1;
-
-import java.io.IOException;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+package demo.app.example1;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
-import org.springframework.stereotype.Component;
 
-@Component
-public class AuthenticationEntryPoint extends BasicAuthenticationEntryPoint {
+public class AuthenticationEntryPoint /*extends BasicAuthenticationEntryPoint*/ {
 
 	private static final Logger logger = LoggerFactory.getLogger(AuthenticationEntryPoint.class);
-
+/*
 	@Override
 	public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authEx)
 			throws IOException, ServletException {
@@ -30,5 +20,5 @@ public class AuthenticationEntryPoint extends BasicAuthenticationEntryPoint {
 		setRealmName("SomeRealm");
 		super.afterPropertiesSet();
 	}
-
+*/
 }

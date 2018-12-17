@@ -1,4 +1,4 @@
-package demo.example1;
+package demo.app.example1;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -20,9 +20,10 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import demo.example1.Hospital;
+import demo.app.DemoApplication;
+import demo.app.example1.Hospital;
 
-@SpringBootTest
+@SpringBootTest(classes= DemoApplication.class)
 @RunWith(SpringRunner.class)
 public class HospitalControllerTest {
 

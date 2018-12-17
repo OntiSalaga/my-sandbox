@@ -1,4 +1,4 @@
-package demo.example1;
+package demo.app.example1;
 
 import java.util.List;
 
@@ -57,5 +57,7 @@ public class HospitalController {
 		return new ResponseEntity<String>("Demo", null, HttpStatus.NO_CONTENT);
 
 	}
+
+
 
 }
