@@ -1,4 +1,4 @@
-package demo.app.example1;
+package demo.app.example1.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,11 +6,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import demo.app.example1.HospRepository;
+import demo.app.example1.model.Hospital;
+
 @Service
-public class HospitalService {
+public class HospService {
 
 	@Autowired
-	private HospitalRepository hospitalRepository;
+	private HospRepository hospitalRepository;
 
 	public List<Hospital> getAllHospitals() {
 
@@ -21,7 +24,8 @@ public class HospitalService {
 	}
 
 	public Hospital getHospital(int id) {
-		return hospitalRepository.findById(id).get();
+		// return hospitalRepository.findOne(id);
+		return hospitalRepository.findById(id).get();  
 	}
 
 	public void addHospital(Hospital hospital) {

@@ -21,7 +21,7 @@ import org.springframework.web.context.WebApplicationContext;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import demo.app.DemoApplication;
-import demo.app.example1.Hospital;
+import demo.app.example1.model.Hospital;
 
 @SpringBootTest(classes= DemoApplication.class)
 @RunWith(SpringRunner.class)
@@ -38,8 +38,8 @@ public class HospitalControllerTest {
 	}
 
 	@Test
-	public void retrievetestTest() throws Exception {
-		addhospitalTest();
+	public void testGetHospital() throws Exception {
+		testAddHospital();
 		mockMvc.perform(get("/test/hospitals/1")).andDo(print()).andExpect(status().isOk())
 				.andExpect(MockMvcResultMatchers.jsonPath("$.id").value(1))
 				.andExpect(MockMvcResultMatchers.jsonPath("$.name").value("Hospital One"))
@@ -49,7 +49,7 @@ public class HospitalControllerTest {
 	}
 
 	@Test
-	public void addhospitalTest() throws Exception {
+	public void testAddHospital() throws Exception {
 		Hospital hospital = new Hospital();
 		hospital.setId(1);
 		hospital.setName("Hospital One");
@@ -69,7 +69,7 @@ public class HospitalControllerTest {
 	}
 
 	@Test
-	public void updatehospitalTest() throws Exception {
+	public void updateHospTest() throws Exception {
 		Hospital hospital = new Hospital();
 		hospital.setId(2);
 		hospital.setName("Hospital Two");
@@ -84,7 +84,7 @@ public class HospitalControllerTest {
 	}
 
 	@Test
-	public void deleteHospitalTest() throws Exception {
+	public void deleteHospTest() throws Exception {
 		Hospital hospital = new Hospital();
 		hospital.setId(1);		
 		byte[] hospJson = toJson(hospital);

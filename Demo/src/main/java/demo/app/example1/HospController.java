@@ -14,14 +14,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import demo.app.example1.model.Hospital;
+import demo.app.example1.service.HospService;
+
 @RestController
 /*@RequestMapping("/test/")*/
-public class HospitalController {
+public class HospController {
 
-	private static final Logger logger = LoggerFactory.getLogger(HospitalController.class);
+	private static final Logger logger = LoggerFactory.getLogger(HospController.class);
 
 	@Autowired
-	private HospitalService hospitalService;
+	private HospService hospitalService;
 
 	@RequestMapping("/test/hospitals/{id}")
 	public @ResponseBody Hospital getHospital(@PathVariable("id") int id) throws Exception {
