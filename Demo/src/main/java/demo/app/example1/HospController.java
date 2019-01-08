@@ -18,13 +18,21 @@ import demo.app.example1.model.Hospital;
 import demo.app.example1.service.HospService;
 
 @RestController
-/*@RequestMapping("/test/")*/
+/* @RequestMapping("/test/") */
 public class HospController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HospController.class);
 
-	@Autowired
 	private HospService hospitalService;
+
+	@Autowired
+	public HospController(HospService hospitalService) {
+		super();
+		this.hospitalService = hospitalService;
+
+		//insert some data into H2
+		hospitalService.addHospital(new Hospital(1, "Hospital One", "Bangalore", 4.2));
+	}
 
 	@RequestMapping("/test/hospitals/{id}")
 	public @ResponseBody Hospital getHospital(@PathVariable("id") int id) throws Exception {
@@ -61,6 +69,9 @@ public class HospController {
 
 	}
 
-
+	@RequestMapping("/")
+	public String sayHello() {
+		return "HelloWorld!";
+	}
 
 }
